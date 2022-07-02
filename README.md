@@ -5,6 +5,7 @@ Backend - часть приложения movies-explorer-api
 
 ## Ссылка на API
 
+https://api.diplom-me.nomoreparties.sbs
 
 ### Роуты:
 
