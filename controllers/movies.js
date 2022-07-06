@@ -18,10 +18,6 @@ const createMovie = (req, res, next) => {
     nameEN,
   } = req.body;
 
-  if (!country || !director || !duration || !year || !description || !image
-    || !trailerLink || !thumbnail || !movieId || !nameRU || !nameEN) {
-    throw new ValidationError('Переданы некорректные данные при добавлении фильма.');
-  }
   const owner = req.user.id;
   Movie.create({
     country,

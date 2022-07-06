@@ -6,8 +6,7 @@ const { ValidationError } = require('../errors/ValidationError');
 const { UnauthorizedError } = require('../errors/UnauthorizedError');
 const User = require('../models/user');
 const { generateToken } = require('../utils/jwt');
-
-const MONGO_DUPLICATE_KEY_CODE = 11000;
+const { MONGO_DUPLICATE_KEY_CODE } = require('../utils/constants');
 
 const createUser = (req, res, next) => {
   const {
@@ -108,6 +107,10 @@ const updateUser = (req, res, next) => {
         if (err.name === 'ValidationError') {
           const validationError = new ValidationError('Не корретно введены данные');
           return next(validationError);
+        }
+        if (err.code === MONGO_DUPLICATE_KEY_CODE) {
+          const conflictError = new ConflictError('Такой email уже занят');
+          return next(conflictError);
         }
         next(err);
       },
