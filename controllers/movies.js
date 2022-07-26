@@ -45,8 +45,8 @@ const createMovie = (req, res, next) => {
     );
 };
 
-const getMovies = (_, res, next) => {
-  Movie.find({})
+const getMovies = (req, res, next) => {
+  Movie.find({ owner: req.user.id })
     .then((movie) => res.send(movie))
     .catch((err) => next(err));
 };
