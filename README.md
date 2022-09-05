@@ -27,7 +27,7 @@ https://api.diplom-me.nomoreparties.sbs
 
 ### Запуск
 
-Используйте 'npm start' для запуска пришложения
+Используйте 'npm start' для запуска приложения
 
 ### Роуты:
 
