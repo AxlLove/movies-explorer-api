@@ -46,3 +46,9 @@ POST /movies
 
 ### удаляет сохранённый фильм по id
 DELETE /movies/_id 
+
+### Регистрация пользователя 
+POST /signup
+
+### Авторизация пользователя
+POST /signin
